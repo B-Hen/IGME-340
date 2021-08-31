@@ -48,6 +48,43 @@ namespace HelloRIT
 
             //add it to the main stack
             mainStack.Children.Add(myName);
+
+            //adds a tap gesture and move the top label to new spot in 1 second
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += async (s, e) =>
+            {
+                await topLabel.TranslateTo(100, 500, 1000, Easing.BounceOut);
+                await topLabel.RotateTo(360, 1000);
+                await topLabel.ScaleTo(0.5, 1000, Easing.SpringOut);
+                await topLabel.FadeTo(0, 1000);
+
+            };
+            
+            //add the gesture to the main stack
+            mainStack.GestureRecognizers.Add(tapGestureRecognizer);
+
+            //Tap animation for the bottom layer
+             var tapGestureRecognizerBottom = new TapGestureRecognizer();
+            tapGestureRecognizerBottom.Tapped += async (s, e) =>
+            {
+                await bottomLabel.TranslateTo(100, 200, 1000);
+                await bottomLabel.ScaleTo(1.5, 1000, Easing.Linear);
+                await bottomLabel.FadeTo(0.5, 1000);
+            };
+
+            //add animation for bottom layer to main stack
+            mainStack.GestureRecognizers.Add(tapGestureRecognizerBottom);
+
+            //tap animation for name label
+            var tapGestureRecognizerName = new TapGestureRecognizer();
+            tapGestureRecognizerName.Tapped += async (s, e) =>
+            {
+                await myName.RotateTo(360, 1000);
+                await myName.FadeTo(0.7, 1000);
+            };
+
+            //add name animation to the main stack 
+            mainStack.GestureRecognizers.Add(tapGestureRecognizerName);
         }
     }
 }
