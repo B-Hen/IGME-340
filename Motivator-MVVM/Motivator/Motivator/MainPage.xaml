@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motivator.MainPage">
+
+    <Grid BackgroundColor="#00203F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="sayingLabel" Text="{Binding SayingText}" TextColor="#ADEFD1" 
+               FontSize="35" Grid.Row="1" HorizontalTextAlignment="Center"/>
+        <Label x:Name="TopLabel" Text="{Binding Title}" TextColor="#ADEFD1" FontSize="50"
+               HorizontalTextAlignment="Center" Grid.Row="0"/>
+        <Button Text="{Binding CategoryText}" FontSize="35" Grid.Row="2" Command="{Binding MotivateCommand}"
+                TextColor="#00203F" BackgroundColor="#ADEFD1"/>
+        <Button Text="{Binding MoreAdvice}" FontSize="35" Command="{Binding MoreAdviceCommand}" Grid.Row="3"
+                TextColor="#00203F" BackgroundColor="#ADEFD1"/>
+    </Grid>
+
+</ContentPage>
