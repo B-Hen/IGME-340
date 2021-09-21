@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DatabindingListView.MainPage"
+             xmlns:vm="clr-namespace:DatabindingListView.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Button Text="Add Level" Command="{Binding AddCommand}"/>
+        <Button Text="Remove Level" Command="{Binding RemoveCommand}" />
+        <CollectionView ItemsSource="{Binding Levels}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="10">
+                    <Label Text="{Binding Name}" FontSize="16" />
+                    <Label Text="{Binding LevelNumber, StringFormat='Your Level : {0}'}" FontSize="13" />
+                    <Label Text="{Binding SuggestLevel, StringFormat='Sugeested Level : {0}'}" FontSize="13" />
+                    <Label Text="{Binding NumberOfTries, StringFormat= 'Number of Tries : {0}'}" FontSize="13" />
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </StackLayout>
+
+</ContentPage>
