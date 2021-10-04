@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Paging.App">
+    <Application.Resources>
+        <Style TargetType="Label" x:Key="PaddingOnly">
+            <Setter Property="Padding" Value="15,0,15,0" />
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource Key=PaddingOnly}">
+            <Setter Property="FontSize" Value="Large" />
+   
+            <Setter Property="TextColor" Value="DarkBlue"/>
+        </Style>
+        <Style TargetType="Label" x:Key="HeaderStyle" BasedOn="{StaticResource Key=PaddingOnly}">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style TargetType="CollectionView" x:Key="CollectionViewMargin">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style TargetType="Label" x:Key="SecondAboutLabel">
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="DarkSalmon"/>
+            <Setter Property="TextColor" Value="DarkBlue"/>
+            <Setter Property="CornerRadius" Value="50"/>
+        </Style>
+    </Application.Resources>
+</Application>
