@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CraneClikcer.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="15,10,20,15">
+            <Label x:Name="Score" Text="Score: 0" HorizontalOptions="StartAndExpand"/>
+            <Label x:Name="Rate" Text="Rate: 0" HorizontalOptions="End"/>
+        </StackLayout>
+        <Image x:Name="craneImage" Source="crane" Aspect="AspectFit"/>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Padding="65,275,0,0">
+            <Label Text="Home"/>
+            <Label Text="Store"/>
+            <Label Text="Stats"/>
+            <Label Text="About"/>
+            <Label Text="Setting"/>
+            <Label Text="instructions"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
