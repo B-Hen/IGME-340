@@ -17,7 +17,7 @@ namespace CraneClikcer
 
             //ints for the rate and the score
             int rate = 0;
-            int score = 0;
+            int score = (int)Preferences.Get("score", 0);
 
             //check for taps on the crane image
             var tapGestureRecognizer = new TapGestureRecognizer();
@@ -25,6 +25,7 @@ namespace CraneClikcer
             {
                 //add to the score and the rate and update the score UI
                 score++;
+                Preferences.Set("score", score);
                 Score.Text = "Score: " + score;
                 rate++;
             };
