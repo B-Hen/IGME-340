@@ -14,7 +14,7 @@
             <Label x:Name="Rate" Text="Rate: 0/s" HorizontalOptions="End"/>
         </StackLayout>
         <Image x:Name="craneImage" Source="crane" Aspect="AspectFit"/>
-        <StackLayout Grid.Row="2" Orientation="Horizontal" Padding="65,275,0,0">
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
             <Label Text="Home"/>
             <Label Text="Store"/>
             <Label Text="Stats"/>
