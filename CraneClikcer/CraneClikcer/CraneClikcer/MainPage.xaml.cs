@@ -46,5 +46,10 @@ namespace CraneClikcer
                 return true;
             });
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new StorePage());
+        }
     }
 }
