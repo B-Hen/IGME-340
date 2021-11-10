@@ -17,23 +17,6 @@ namespace CraneClikcer
 
             //ints for the rate and the score
             int rate = 0;
-            int score = (int)Preferences.Get("score", 0);
-            Score.Text = Preferences.Get("scoreText", "Score: 0");
-
-            //check for taps on the crane image
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += async(s,e) =>
-            {
-                //add to the score and the rate and update the score UI
-                score++;
-                Preferences.Set("score", score);
-                Score.Text = "Score: " + score;
-                Preferences.Set("scoreText", Score.Text);
-                rate++;
-            };
-
-            //add the tap gesture to the image
-            craneImage.GestureRecognizers.Add(tapGestureRecognizer);
 
             //Check each second for the rate of clicjs
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>

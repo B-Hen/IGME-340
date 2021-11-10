@@ -10,15 +10,19 @@
         <vm:StorePageViewModel/>
     </ContentPage.BindingContext>
 
-    <CollectionView ItemsSource="{Binding items}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:StoreItems">
-                <StackLayout>
-                    <Label Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
-                    <Button Text="Buy Scissors" Command="{Binding AddScissors}"/>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-
+    <StackLayout>
+        <Label x:Name="Score" Text="{Binding Score, StringFormat='Score: {0:F0}'}"/>
+        <CollectionView ItemsSource="{Binding items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:StoreItems">
+                    <StackLayout>
+                        <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
+                        <Button x:Name="scissorsButton" Text="Buy Scissors" Command="{Binding AddScissors}" />
+                        <Label Text="{Binding numPaper, StringFormat='Paper: {0:F0}'}"/>
+                        <Button Text="Buy Paper" Command="{Binding AddPaper}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CraneClikcer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace CraneClikcer.Models
@@ -21,12 +23,9 @@ namespace CraneClikcer.Models
             {
                 scissors = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("numScissors"));
+                Preferences.Set("Scissors", scissors);
             }
         }
-        public int numPaper { get; set; }
-        public int numSibings { get; set; }
-        public int numFriends { get; set; }
-        public int numCoWorkers { get; set; }
 
         private Command addScissors;
 
@@ -36,7 +35,7 @@ namespace CraneClikcer.Models
             {
                 if (addScissors == null)
                 {
-                    addScissors = new Command(PerformaddScissors);
+                    addScissors = new Command(PerformaddScissors, EnableScissors);
                 }
 
                 return addScissors;
@@ -46,6 +45,58 @@ namespace CraneClikcer.Models
         private void PerformaddScissors()
         {
             numScissors++;
+
+            App.score -= 5;
+            addScissors.ChangeCanExecute();
+            storeVM.UpdateScore();
+            MPVM.UpdateScore();
+        }
+
+        private bool EnableScissors()
+        {
+            if (App.score >= 5)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public StorePageViewModel storeVM{ get; set; }
+        public MainPageViewModel MPVM { get; set; }
+
+        private int paper;
+        public int numPaper
+        {
+            get { return paper; }
+            set
+            {
+                paper = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("numPaper"));
+            }
+        }
+        public int numSibings { get; set; }
+        public int numFriends { get; set; }
+        public int numCoWorkers { get; set; }
+
+        private Command addPaper;
+
+        public ICommand AddPaper
+        {
+            get
+            {
+                if(addPaper == null)
+                {
+                    addPaper = new Command(PerformAddPaper);
+                }
+
+                return addPaper;
+            }
+        }
+
+        public void PerformAddPaper()
+        {
+            numPaper++;
         }
     }
 }
