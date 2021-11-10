@@ -23,10 +23,8 @@ namespace CraneClikcer.ViewModels
         {
             items = new ObservableCollection<StoreItems>
             {
-                new StoreItems{ numScissors = Preferences.Get("Scissors", 0), numPaper = 0, numSibings = 0, numFriends = 0, numCoWorkers = 0, storeVM = this},
+                new StoreItems{ numScissors = Preferences.Get("Scissors", 0), numPaper = 0, numSibings = 0, numFriends = 0, numCoWorkers = 0, storeVM = this, MPVM = new MainPageViewModel()},
             };
-
-            MainPageViewModel MPVM = new MainPageViewModel(items[0]);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -13,12 +13,6 @@ namespace CraneClikcer.ViewModels
         public int Score
         {
             get { return App.score; }
-            set
-            {
-                App.score = value;
-
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Score"));
-            }
         }
 
         private Command addScore;
@@ -40,12 +34,8 @@ namespace CraneClikcer.ViewModels
 
         private void PerformAddScore()
         {
-            Score++;
-        }
-
-        public MainPageViewModel(StoreItems item)
-        {
-            item.MPVM = this;
+            App.score++;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Score"));
         }
 
         public MainPageViewModel() { }

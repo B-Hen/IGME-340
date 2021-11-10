@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CraneClikcer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace CraneClikcer
         private void Button_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new StorePage());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((MainPageViewModel)BindingContext).UpdateScore();
         }
     }
 }

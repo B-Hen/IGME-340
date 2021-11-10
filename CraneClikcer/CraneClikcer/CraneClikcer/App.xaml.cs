@@ -12,13 +12,12 @@ namespace CraneClikcer
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
             score = (int)Preferences.Get("score", 0);
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
         {
-            score = (int)Preferences.Get("score", 0);
         }
 
         protected override void OnSleep()
