@@ -7,12 +7,21 @@ namespace CraneClikcer
 {
     public partial class App : Application
     {
-        public static int score { get; set; }
+        //Properties
+        public static int Score { get; set; }
+        public static int Rate { get; set; }
+        public static int Scissors { get; set; }
+
         public App()
         {
             InitializeComponent();
 
-            score = (int)Preferences.Get("score", 0);
+            //Set the variables
+            Score = (int)Preferences.Get("score", 0);
+            Rate = (int)Preferences.Get("rate", 0);
+            Scissors = (int)Preferences.Get("scissors", 0);
+
+            //create naviagation 
             MainPage = new NavigationPage(new MainPage());
         }
 
@@ -22,7 +31,10 @@ namespace CraneClikcer
 
         protected override void OnSleep()
         {
-            Preferences.Set("score", score);
+            //Save the variales when the app closes
+            Preferences.Set("score", Score);
+            Preferences.Set("rate", Rate);
+            Preferences.Set("scissors", Scissors);
         }
 
         protected override void OnResume()

@@ -17,7 +17,12 @@
                 <DataTemplate x:DataType="model:StoreItems">
                     <StackLayout>
                         <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
-                        <Button x:Name="scissorsButton" Text="Buy Scissors" Command="{Binding AddScissors}" />
+                        <Button x:Name="scissorsButton" Text="Buy Scissors For 50 Cranes" Command="{Binding AddScissors}" />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Button Text="Sell x1" Command="{Binding SubtractScissorsX1}" />
+                            <Button Text="Sell x10" Command="{Binding SubtractScissorsX10}"/>
+                            <Button Text="Sell x100" Command="{Binding SubtractScissorsX100}"/>
+                        </StackLayout>
                         <Label Text="{Binding numPaper, StringFormat='Paper: {0:F0}'}"/>
                         <Button Text="Buy Paper" Command="{Binding AddPaper}"/>
                     </StackLayout>
