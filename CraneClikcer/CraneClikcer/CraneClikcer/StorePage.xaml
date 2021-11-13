@@ -11,13 +11,13 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Label x:Name="Score" Text="{Binding Score, StringFormat='Score: {0:F0}'}"/>
+        <Label x:Name="Score" Text="{Binding Score, StringFormat='Cranes: {0:F0}'}"/>
         <CollectionView ItemsSource="{Binding items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:StoreItems">
                     <StackLayout>
                         <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
-                        <Button x:Name="scissorsButton" Text="Buy Scissors For 50 Cranes" Command="{Binding AddScissors}" />
+                        <Button x:Name="scissorsButton" Text="{Binding ScissorsCost, StringFormat='Buy Scissors for {0:F0} Cranes'}" Command="{Binding AddScissors}" />
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                             <Button Text="Sell x1" Command="{Binding SubtractScissorsX1}" />
                             <Button Text="Sell x10" Command="{Binding SubtractScissorsX10}"/>

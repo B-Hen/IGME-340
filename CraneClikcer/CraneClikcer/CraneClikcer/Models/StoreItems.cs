@@ -29,6 +29,11 @@ namespace CraneClikcer.Models
             }
         }
 
+        public int ScissorsCost
+        {
+            get { return App.ScissorCost; }
+        }
+
         //command to add to the number of scissors
         public Command addScissors;
 
@@ -50,15 +55,19 @@ namespace CraneClikcer.Models
         {
             numScissors++;
             App.Scissors++;
-            App.Score -= 50;
+            //increase the cost of the scissors 
+            App.ScissorCost = (int)Math.Pow(App.ScissorCost, 1.15);
+            App.Score -= 15;
             addScissors.ChangeCanExecute();
             storeVM.UpdateScore();
+            //update the text of the scissors buy button
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScissorsCost"));
         }
 
         //method to check if you can actually buy scissors
         private bool EnableScissors()
         {
-            if (App.Score >= 50)
+            if (App.Score >= App.ScissorCost)
             {
                 return true;
             }
@@ -87,7 +96,7 @@ namespace CraneClikcer.Models
         {
             numScissors--;
             App.Scissors = numScissors;
-            App.Score += 50;
+            App.Score += 15;
             subtractScissorsX1.ChangeCanExecute();
             storeVM.UpdateScore();
         }
@@ -124,7 +133,7 @@ namespace CraneClikcer.Models
         {
             numScissors-=10;
             App.Scissors = numScissors;
-            App.Score += 10 * 50;
+            App.Score += 10 * 15;
             subtractScissorsX10.ChangeCanExecute();
             storeVM.UpdateScore();
         }
@@ -161,7 +170,7 @@ namespace CraneClikcer.Models
         {
             numScissors -= 100;
             App.Scissors = numScissors;
-            App.Score += 100 * 50;
+            App.Score += 100 * 15;
             subtractScissorsX10.ChangeCanExecute();
             storeVM.UpdateScore();
         }

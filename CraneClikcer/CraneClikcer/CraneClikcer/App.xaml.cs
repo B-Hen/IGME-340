@@ -12,6 +12,8 @@ namespace CraneClikcer
         public static int Rate { get; set; }
         public static int Scissors { get; set; }
 
+        public static int ScissorCost { get; set; }
+
         public App()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace CraneClikcer
             Score = (int)Preferences.Get("score", 0);
             Rate = (int)Preferences.Get("rate", 0);
             Scissors = (int)Preferences.Get("scissors", 0);
+            ScissorCost = (int)Preferences.Get("scissorsCost", 15);
 
             //create naviagation 
             MainPage = new NavigationPage(new MainPage());
@@ -35,6 +38,7 @@ namespace CraneClikcer
             Preferences.Set("score", Score);
             Preferences.Set("rate", Rate);
             Preferences.Set("scissors", Scissors);
+            Preferences.Set("scissorsCost", ScissorCost);
         }
 
         protected override void OnResume()
