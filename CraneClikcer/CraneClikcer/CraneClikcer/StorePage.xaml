@@ -12,17 +12,21 @@
 
     <StackLayout>
         <Label x:Name="Score" Text="{Binding Score, StringFormat='Cranes: {0:F0}'}"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="Buy" Command="{Binding Buy}"/>
+            <Button Text="Sell" Command="{Binding Sell}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="{Binding BuySellx1}" Command="{Binding X1}" />
+            <Button Text="{Binding BuySellx10}" Command="{Binding X10}"/>
+            <Button Text="{Binding BuySellx100}" Command="{Binding X100}"/>
+        </StackLayout>
         <CollectionView ItemsSource="{Binding items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:StoreItems">
                     <StackLayout>
                         <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
-                        <Button x:Name="scissorsButton" Text="{Binding ScissorsCost, StringFormat='Buy Scissors for {0:F0} Cranes'}" Command="{Binding AddScissors}" />
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <Button Text="Sell x1" Command="{Binding SubtractScissorsX1}" />
-                            <Button Text="Sell x10" Command="{Binding SubtractScissorsX10}"/>
-                            <Button Text="Sell x100" Command="{Binding SubtractScissorsX100}"/>
-                        </StackLayout>
+                        <Button x:Name="scissorsButton" Text="{Binding ScissorsText}" Command="{Binding AddSubScissors}" />
                         <Label Text="{Binding numPaper, StringFormat='Paper: {0:F0}'}"/>
                         <Button Text="Buy Paper" Command="{Binding AddPaper}"/>
                     </StackLayout>

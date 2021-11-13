@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -26,6 +27,19 @@ namespace CraneClikcer.ViewModels
             get { return App.Scissors; }
         }
 
+        public bool BuySell
+        {
+            get { return App.BuySell; }
+        }
+        public int BuySellAmount
+        {
+            get { return App.BuySellAmount; }
+        }
+
+        public string  BuySellx1 { get { return App.BuySellx1; } }
+        public string  BuySellx10 { get { return App.BuySellx10; } }
+        public string  BuySellx100 { get { return App.BuySellx100; } }
+
         public StorePageViewModel()
         {
             //create the items
@@ -39,17 +53,132 @@ namespace CraneClikcer.ViewModels
         internal void UpdateScore()
         {
             //also check to see if the add scissor button can be enabled/disabled
-            items[0].addScissors.ChangeCanExecute();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Score"));
         }
 
-        //method to update the scissors
-        internal void UpdateScissors()
+        private Command buy;
+
+        public ICommand Buy
         {
-            //check to see if the x1 x10 x100 buttons need to be disable/enabled
-            items[0].subtractScissorsX1.ChangeCanExecute();
-            items[0].subtractScissorsX10.ChangeCanExecute();
-            items[0].subtractScissorsX100.ChangeCanExecute();
+            get
+            {
+                if(buy == null)
+                {
+                    buy = new Command(UpdateBuy);
+                }
+
+                return buy;
+            }
+        }
+
+        public void UpdateBuy()
+        {
+            App.BuySell = true;
+            items[0].addSubScissors.ChangeCanExecute();
+            UpdateBuySellButtonText();
+        }
+
+        private Command sell;
+        public ICommand Sell
+        {
+            get
+            {
+                if(sell == null)
+                {
+                    sell = new Command(UpdateSell);
+                }
+
+                return sell;
+            }
+        }
+
+        public void UpdateSell()
+        {
+            App.BuySell = false;
+            items[0].addSubScissors.ChangeCanExecute();
+            UpdateBuySellButtonText();
+        }
+
+        public Command x1;
+        public Command x10;
+        public Command x100;
+
+        public ICommand X1
+        {
+            get
+            {
+                if(x1 == null)
+                {
+                    x1 = new Command(() =>
+                    {
+                        App.BuySellAmount = 1;
+                        items[0].UpdateScissorsText();
+                        items[0].addSubScissors.ChangeCanExecute();
+                    });
+                }
+
+                return x1;
+            }
+        }
+
+        public ICommand X10
+        {
+            get
+            {
+                if(x10 == null)
+                {
+                    x10 = new Command(() =>
+                    {
+                        App.BuySellAmount = 10;
+                        items[0].UpdateScissorsText();
+                        items[0].addSubScissors.ChangeCanExecute();
+                    });
+                }
+
+                return x10;
+            }
+        }
+
+        public ICommand X100
+        {
+            get
+            {
+                if(x100 == null)
+                {
+                    x100 = new Command(() =>
+                    {
+                        App.BuySellAmount = 100;
+                        items[0].UpdateScissorsText();
+                        items[0].addSubScissors.ChangeCanExecute();
+                    });
+                }
+
+                return x100;
+            }
+        }
+
+        public void UpdateBuySellButtonText()
+        {
+            if(BuySell == true)
+            {
+                App.BuySellx1 = "BUY x1";
+                App.BuySellx10 = "BUY x10";
+                App.BuySellx100 = "BUY x100";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx1"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx10"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx100"));
+                items[0].UpdateScissorsText();
+            }
+            else if(BuySell == false)
+            {
+                App.BuySellx1 = "SELL x1";
+                App.BuySellx10 = "SELL x10";
+                App.BuySellx100 = "SELL x100";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx1"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx10"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx100"));
+                items[0].UpdateScissorsText();
+            }
         }
     }
 }

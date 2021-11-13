@@ -22,11 +22,6 @@ namespace CraneClikcer
             {
                 //check if score needs to be updated
                 ((StorePageViewModel)BindingContext).UpdateScore();
-
-                //check if the scissors need to be updated
-                ((StorePageViewModel)BindingContext).UpdateScissors();
-
-                //return true to restart timer
                 return true;
             });
         }

@@ -29,163 +29,90 @@ namespace CraneClikcer.Models
             }
         }
 
-        public int ScissorsCost
-        {
-            get { return App.ScissorCost; }
-        }
+        public string ScissorsText { get { return App.ScissorText; } }
 
-        //command to add to the number of scissors
-        public Command addScissors;
-
-        public ICommand AddScissors
+        public Command addSubScissors { get; set; }
+        public ICommand AddSubScissors
         {
             get
             {
-                if (addScissors == null)
+                if(addSubScissors == null)
                 {
-                    addScissors = new Command(PerformaddScissors, EnableScissors);
+                    addSubScissors = new Command(PerformAddSubScissors, EnableAddSubScissors);
                 }
 
-                return addScissors;
+                return addSubScissors;
             }
         }
 
-        //method to add to the scissors and update the score
-        private void PerformaddScissors()
+        public void PerformAddSubScissors()
         {
-            numScissors++;
-            App.Scissors++;
-            //increase the cost of the scissors 
-            App.ScissorCost = (int)Math.Pow(App.ScissorCost, 1.15);
-            App.Score -= 15;
-            addScissors.ChangeCanExecute();
-            storeVM.UpdateScore();
-            //update the text of the scissors buy button
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScissorsCost"));
+            //first check to see if you have to add or subtracnt
+            if(storeVM.BuySell == true) // buy
+            {
+                numScissors += storeVM.BuySellAmount;
+                App.Scissors += storeVM.BuySellAmount;
+                App.Score -= App.ScissorCost * storeVM.BuySellAmount;
+                App.ScissorCost = (int)Math.Pow(App.ScissorCost, 1.15);
+                App.ScissorSell = (int)Math.Pow(App.ScissorCost, 1.0 / 1.15);
+                if (App.ScissorSell == 0 & App.ScissorCost > 15) App.ScissorSell = 5;
+                storeVM.UpdateScore();
+                addSubScissors.ChangeCanExecute();
+                UpdateScissorsText();
+            }
+            else if (storeVM.BuySell == false) //sell
+            {
+                numScissors -= storeVM.BuySellAmount;
+                App.Scissors -= storeVM.BuySellAmount;
+                App.Score += App.ScissorSell * storeVM.BuySellAmount;
+                App.ScissorSell--;
+                if (App.ScissorSell <= 0) App.ScissorSell = 0;
+                if (numScissors <= 0) App.ScissorSell = 0;
+                storeVM.UpdateScore();
+                addSubScissors.ChangeCanExecute();
+                UpdateScissorsText();
+
+            }
         }
 
-        //method to check if you can actually buy scissors
-        private bool EnableScissors()
+        public bool EnableAddSubScissors()
         {
-            if (App.Score >= App.ScissorCost)
+            if (storeVM.BuySell == true) //buy
             {
-                return true;
+                if(App.Score >= App.ScissorCost * storeVM.BuySellAmount)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            else if (storeVM.BuySell == false) //sell
+            {
+                if(App.Scissors >= storeVM.BuySellAmount)
+                {
+                    return true;
+                }
+
+                return false;
             }
 
             return false;
         }
 
-        //command to subtract from the number of scissors
-        public Command subtractScissorsX1;
-
-        public ICommand SubtractScissorsX1
+        public void UpdateScissorsText()
         {
-            get
+            if(storeVM.BuySell == true) // buy
             {
-                if(subtractScissorsX1 == null)
-                {
-                    subtractScissorsX1 = new Command(PerformsubtractScissorsX1, EnableSubtractScissorsX1);
-                }
-
-                return subtractScissorsX1;
+                App.ScissorText =  "Buy For " + App.ScissorCost * storeVM.BuySellAmount + " Cranes";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScissorsText"));
+            }
+            else if (storeVM.BuySell == false) //sell
+            {
+                App.ScissorText = "Sell For " + App.ScissorSell * storeVM.BuySellAmount + " Cranes";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScissorsText"));
             }
         }
-
-        //method to subtract from the scissors by 1 and update the score
-        private void PerformsubtractScissorsX1()
-        {
-            numScissors--;
-            App.Scissors = numScissors;
-            App.Score += 15;
-            subtractScissorsX1.ChangeCanExecute();
-            storeVM.UpdateScore();
-        }
-
-        //method check if you can subtract by 1 
-        private bool EnableSubtractScissorsX1()
-        {
-            if(App.Scissors >= 1)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        //command to subtract from scissors by 10 
-        public Command subtractScissorsX10;
-
-        public ICommand SubtractScissorsX10
-        {
-            get
-            {
-                if (subtractScissorsX10 == null)
-                {
-                    subtractScissorsX10 = new Command(PerformsubtractScissorsX10, EnableSubtractScissorsX10);
-                }
-
-                return subtractScissorsX10;
-            }
-        }
-
-        //method to subtract by 10 and update the score
-        private void PerformsubtractScissorsX10()
-        {
-            numScissors-=10;
-            App.Scissors = numScissors;
-            App.Score += 10 * 15;
-            subtractScissorsX10.ChangeCanExecute();
-            storeVM.UpdateScore();
-        }
-
-        //method to check if you can subtract by 10 
-        private bool EnableSubtractScissorsX10()
-        {
-            if (App.Scissors >= 10)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        //command to subtract scissors by 100 
-        public Command subtractScissorsX100;
-
-        public ICommand SubtractScissorsX100
-        {
-            get
-            {
-                if (subtractScissorsX100 == null)
-                {
-                    subtractScissorsX100 = new Command(PerformsubtractScissorsX100, EnableSubtractScissorsX100);
-                }
-
-                return subtractScissorsX100;
-            }
-        }
-
-        //method to subtract scissors by 100 and update the score
-        private void PerformsubtractScissorsX100()
-        {
-            numScissors -= 100;
-            App.Scissors = numScissors;
-            App.Score += 100 * 15;
-            subtractScissorsX10.ChangeCanExecute();
-            storeVM.UpdateScore();
-        }
-
-        //method to check if you can subtract scissor by 100
-        private bool EnableSubtractScissorsX100()
-        {
-            if (App.Scissors >= 100)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
+        
         #endregion
 
         private int paper;
