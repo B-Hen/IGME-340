@@ -22,11 +22,6 @@ namespace CraneClikcer.ViewModels
             get { return App.Score; }
         }
 
-        public int Scissors
-        {
-            get { return App.Scissors; }
-        }
-
         public bool BuySell
         {
             get { return App.BuySell; }
@@ -45,7 +40,7 @@ namespace CraneClikcer.ViewModels
             //create the items
             items = new ObservableCollection<StoreItems>
             {
-                new StoreItems{ numScissors = App.Scissors, numPaper = 0, numSibings = 0, numFriends = 0, numCoWorkers = 0, storeVM = this},
+                new StoreItems{ numScissors = App.Scissors, Paper = App.Paper, Siblings = App.Sibling, Friends = App.Friends, CoWorkers = App.CoWorkers, storeVM = this},
             };
         }
 
@@ -75,6 +70,10 @@ namespace CraneClikcer.ViewModels
         {
             App.BuySell = true;
             items[0].addSubScissors.ChangeCanExecute();
+            items[0].addSubPaper.ChangeCanExecute();
+            items[0].addSubSibling.ChangeCanExecute();
+            items[0].addSubFriends.ChangeCanExecute();
+            items[0].addSubCoWorkers.ChangeCanExecute();
             UpdateBuySellButtonText();
         }
 
@@ -96,6 +95,10 @@ namespace CraneClikcer.ViewModels
         {
             App.BuySell = false;
             items[0].addSubScissors.ChangeCanExecute();
+            items[0].addSubPaper.ChangeCanExecute();
+            items[0].addSubSibling.ChangeCanExecute();
+            items[0].addSubFriends.ChangeCanExecute();
+            items[0].addSubCoWorkers.ChangeCanExecute();
             UpdateBuySellButtonText();
         }
 
@@ -112,8 +115,12 @@ namespace CraneClikcer.ViewModels
                     x1 = new Command(() =>
                     {
                         App.BuySellAmount = 1;
-                        items[0].UpdateScissorsText();
+                        items[0].UpdateText();
                         items[0].addSubScissors.ChangeCanExecute();
+                        items[0].addSubPaper.ChangeCanExecute();
+                        items[0].addSubSibling.ChangeCanExecute();
+                        items[0].addSubFriends.ChangeCanExecute();
+                        items[0].addSubCoWorkers.ChangeCanExecute();
                     });
                 }
 
@@ -130,8 +137,12 @@ namespace CraneClikcer.ViewModels
                     x10 = new Command(() =>
                     {
                         App.BuySellAmount = 10;
-                        items[0].UpdateScissorsText();
+                        items[0].UpdateText();
                         items[0].addSubScissors.ChangeCanExecute();
+                        items[0].addSubPaper.ChangeCanExecute();
+                        items[0].addSubSibling.ChangeCanExecute();
+                        items[0].addSubFriends.ChangeCanExecute();
+                        items[0].addSubCoWorkers.ChangeCanExecute();
                     });
                 }
 
@@ -148,8 +159,12 @@ namespace CraneClikcer.ViewModels
                     x100 = new Command(() =>
                     {
                         App.BuySellAmount = 100;
-                        items[0].UpdateScissorsText();
+                        items[0].UpdateText();
                         items[0].addSubScissors.ChangeCanExecute();
+                        items[0].addSubPaper.ChangeCanExecute();
+                        items[0].addSubSibling.ChangeCanExecute();
+                        items[0].addSubFriends.ChangeCanExecute();
+                        items[0].addSubCoWorkers.ChangeCanExecute();
                     });
                 }
 
@@ -167,7 +182,7 @@ namespace CraneClikcer.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx1"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx10"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx100"));
-                items[0].UpdateScissorsText();
+                items[0].UpdateText();
             }
             else if(BuySell == false)
             {
@@ -177,8 +192,18 @@ namespace CraneClikcer.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx1"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx10"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BuySellx100"));
-                items[0].UpdateScissorsText();
+                items[0].UpdateText();
             }
+        }
+
+        //method to uopdate the items
+        public void UpdateBuySellItems()
+        {
+            items[0].addSubScissors.ChangeCanExecute();
+            items[0].addSubPaper.ChangeCanExecute();
+            items[0].addSubSibling.ChangeCanExecute();
+            items[0].addSubFriends.ChangeCanExecute();
+            items[0].addSubCoWorkers.ChangeCanExecute();
         }
     }
 }

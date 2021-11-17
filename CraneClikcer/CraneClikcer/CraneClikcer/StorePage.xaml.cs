@@ -22,6 +22,7 @@ namespace CraneClikcer
             {
                 //check if score needs to be updated
                 ((StorePageViewModel)BindingContext).UpdateScore();
+                ((StorePageViewModel)BindingContext).UpdateBuySellItems();
                 return true;
             });
         }

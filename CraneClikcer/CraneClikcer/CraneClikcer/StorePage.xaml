@@ -27,8 +27,14 @@
                     <StackLayout>
                         <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
                         <Button x:Name="scissorsButton" Text="{Binding ScissorsText}" Command="{Binding AddSubScissors}" />
-                        <Label Text="{Binding numPaper, StringFormat='Paper: {0:F0}'}"/>
-                        <Button Text="Buy Paper" Command="{Binding AddPaper}"/>
+                        <Label Text="{Binding Paper, StringFormat='Paper: {0:F0}'}"/>
+                        <Button Text="{Binding PaperText}" Command="{Binding AddSubPaper}"/>
+                        <Label Text="{Binding Siblings, StringFormat='Siblings: {0:F0}'}"/>
+                        <Button Text="{Binding SiblingText}" Command="{Binding AddSubSibling}"/>
+                        <Label Text="{Binding Friends, StringFormat='Friends: {0:F0}'}"/>
+                        <Button Text="{Binding FriendsText}" Command="{Binding AddSubFriends}"/>
+                        <Label Text="{Binding CoWorkers, StringFormat='Co-Workers: {0:F0}'}"/>
+                        <Button Text="{Binding CoWorkersText}" Command="{Binding AddSubCoWorkers}"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
