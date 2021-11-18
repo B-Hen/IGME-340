@@ -130,10 +130,5 @@ namespace CraneClikcer
         {
             Navigation.PushAsync(new InstructionPage());
         }
-
-        private void Settings_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new SettingsPage());
-        }
     }
 }

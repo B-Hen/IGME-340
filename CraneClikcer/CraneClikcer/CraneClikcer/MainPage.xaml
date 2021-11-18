@@ -28,10 +28,9 @@
         <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="Store" Clicked="Store_Clicked"/>
             <Button Text="Stats"/>
+            <Button Text="About"/>
         </StackLayout>
         <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="About"/>
-            <Button Text="Setting" Clicked="Settings_Clicked"/>
             <Button Text="instructions" Clicked="Instructions_Clicked"/>
         </StackLayout>
     </Grid>
