@@ -125,5 +125,15 @@ namespace CraneClikcer
             base.OnAppearing();
             ((MainPageViewModel)BindingContext).UpdateScore();
         }
+
+        private void Instructions_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new InstructionPage());
+        }
+
+        private void Settings_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingsPage());
+        }
     }
 }

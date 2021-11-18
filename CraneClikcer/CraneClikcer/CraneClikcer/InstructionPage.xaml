@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CraneClikcer.InstructionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Crane Clicker Instructions" HorizontalTextAlignment="Center"/>
+            <Label Text="Click the gaint crane on the main page to get more cranes...thats it. After all this is Cook- I mean Crane Clicker the game!!!" HorizontalTextAlignment="Center"/>
+            <Label Text="There are multiple ways to increase your crane count without clicking constantly. Below are some items that you can purchase to help you gain all the cranes your heart desires" HorizontalTextAlignment="Center"/>
+            <Label Text="First click the gaint crane on the home page and once you have enough head over to the store page to buy any of the items. You can also sell any item you buy for cranes back. You can even buy or sell cranes in bulk by changing the options on the top of the store page." HorizontalTextAlignment="Center"/>
+            <Label Text="Scissors" HorizontalTextAlignment="Center"/>
+            <Label Text="Scissors will autoclick for you every second and give you an additional 5 cranes." HorizontalTextAlignment="Center"/>
+            <Label Text="Paper" HorizontalTextAlignment="Center"/>
+            <Label Text="Paper will autoclick for you every 10 seconds and give you an additional 15 cranes." HorizontalTextAlignment="Center"/>
+            <Label Text="Siblings" HorizontalTextAlignment="Center"/>
+            <Label Text="Force your siblings to do hard labor and produce 35 cranes every 50 seconds" HorizontalTextAlignment="Center"/>
+            <Label Text="Friends" HorizontalTextAlignment="Center"/>
+            <Label Text="Buy your ways to friendships and make 75 cranes every 100 seconds with all your new friends" HorizontalTextAlignment="Center"/>
+            <Label Text="Co-Workers" HorizontalTextAlignment="Center"/>
+            <Label Text="Why work for less than minimun wage when you can slack off with co-workers and make 100 cranes every 150 seconds while on the clock" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

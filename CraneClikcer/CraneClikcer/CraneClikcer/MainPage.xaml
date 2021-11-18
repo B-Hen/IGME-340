@@ -31,8 +31,8 @@
         </StackLayout>
         <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="About"/>
-            <Button Text="Setting"/>
-            <Button Text="instructions"/>
+            <Button Text="Setting" Clicked="Settings_Clicked"/>
+            <Button Text="instructions" Clicked="Instructions_Clicked"/>
         </StackLayout>
     </Grid>
 
