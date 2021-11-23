@@ -57,8 +57,8 @@ namespace CraneClikcer
             BuySell = Preferences.Get("buySell", true);
             BuySellAmount = (int)Preferences.Get("buySellAmount", 1);
             BuySellx1 = Preferences.Get("buysellx1", "BUY x1");
-            BuySellx10 = Preferences.Get("buysellx1", "BUY x10");
-            BuySellx100 = Preferences.Get("buysellx1", "BUY x100");
+            BuySellx10 = Preferences.Get("buysellx10", "BUY x10");
+            BuySellx100 = Preferences.Get("buysellx100", "BUY x100");
             Scissors = (int)Preferences.Get("scissors", 0);
             ScissorCost = (int)Preferences.Get("scissorsCost", 15);
             PrevScissorCost = (int)Preferences.Get("prevScissorsCost", 0);

@@ -22,7 +22,7 @@
         </StackLayout>
         <Image x:Name="craneImage" Source="crane" Aspect="AspectFit">
                <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding AddScore}"/>
+                <TapGestureRecognizer Command="{Binding AddScore}" Tapped="TapGestureRecognizer_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
         <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

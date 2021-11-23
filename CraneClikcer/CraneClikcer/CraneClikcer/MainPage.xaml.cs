@@ -130,5 +130,12 @@ namespace CraneClikcer
         {
             Navigation.PushAsync(new InstructionPage());
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await craneImage.RotateTo(-10, 100, Easing.Linear);
+            await craneImage.RotateTo(10, 100, Easing.Linear);
+            await craneImage.RotateTo(0, 100, Easing.Linear);
+        }
     }
 }
