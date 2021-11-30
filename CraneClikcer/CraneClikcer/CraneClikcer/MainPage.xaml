@@ -27,7 +27,7 @@
         </Image>
         <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="Store" Clicked="Store_Clicked"/>
-            <Button Text="Stats"/>
+            <Button Text="Share" Command="{Binding ShareProgressCommand}"/>
             <Button Text="About"/>
         </StackLayout>
         <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

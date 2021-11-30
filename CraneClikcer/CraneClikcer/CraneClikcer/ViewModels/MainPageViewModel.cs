@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace CraneClikcer.ViewModels
 {
@@ -59,6 +60,31 @@ namespace CraneClikcer.ViewModels
         internal void UpdateRate()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Rate"));
+        }
+
+        private Command shareProgress;
+
+        public ICommand ShareProgressCommand
+        {
+            get
+            {
+                if(shareProgress == null)
+                {
+                    shareProgress = new Command(ShareProgress);
+                }
+
+                return shareProgress;
+            }
+        }
+
+        public async void ShareProgress()
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = "Crane Clicker Stats!\nCranes: " + App.Score + "\nRate: " + App.Rate + "\nScissors: " + App.Scissors +
+                "\nPaper: " + App.Paper + "\nSiblings: " + App.Sibling + "\nFriends: " + App.Friends + 
+                "\nCo-Workers: " + App.CoWorkers
+            });
         }
     }
 }
