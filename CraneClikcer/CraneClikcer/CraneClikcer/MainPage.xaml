@@ -8,7 +8,7 @@
     <ContentPage.BindingContext>
         <vm:MainPageViewModel/>
     </ContentPage.BindingContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,7 +21,7 @@
             <Label x:Name="Rate" Text="{Binding Rate, StringFormat='Rate: {0:F0}/s'}" HorizontalOptions="End"/>
         </StackLayout>
         <Image x:Name="craneImage" Source="crane" Aspect="AspectFit">
-               <Image.GestureRecognizers>
+            <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding AddScore}" Tapped="TapGestureRecognizer_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
@@ -33,6 +33,11 @@
         <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="instructions" Clicked="Instructions_Clicked"/>
         </StackLayout>
+        <Image x:Name="LuckyImage" Source="luckycrane" WidthRequest="10" HeightRequest="10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="LuckyImage_Tappped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label x:Name="LuckyText" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
     </Grid>
-
 </ContentPage>

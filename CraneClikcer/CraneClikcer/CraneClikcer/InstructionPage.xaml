@@ -6,7 +6,7 @@
         <StackLayout>
             <Label Text="Crane Clicker Instructions" HorizontalTextAlignment="Center"/>
             <Label Text="Click the gaint crane on the main page to get more cranes...thats it. After all this is Cook- I mean Crane Clicker the game!!!" HorizontalTextAlignment="Center"/>
-            <Label Text="There are multiple ways to increase your crane count without clicking constantly. Below are some items that you can purchase to help you gain all the cranes your heart desires" HorizontalTextAlignment="Center"/>
+            <Label Text="There are multiple ways to increase your crane count without clicking constantly. Below are some items that you can purchase to help you gain all the cranes your heart desires. There are also lucky cranes that are rare but will provide a very nice boost if you manage to click it." HorizontalTextAlignment="Center"/>
             <Label Text="First click the gaint crane on the home page and once you have enough head over to the store page to buy any of the items. You can also sell any item you buy for cranes back. You can even buy or sell cranes in bulk by changing the options on the top of the store page." HorizontalTextAlignment="Center"/>
             <Label Text="Scissors" HorizontalTextAlignment="Center"/>
             <Label Text="Scissors will autoclick for you every second and give you an additional 5 cranes." HorizontalTextAlignment="Center"/>

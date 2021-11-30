@@ -136,6 +136,18 @@
     <ImageAsset Include="Assets.xcassets\crane.imageset\crane2.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\luckycrane.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\luckycrane.imageset\luckycrane.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\luckycrane.imageset\luckycrane1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\luckycrane.imageset\luckycrane2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\splash_screen_img.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
