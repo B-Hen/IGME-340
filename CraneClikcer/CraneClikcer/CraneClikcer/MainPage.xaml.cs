@@ -18,6 +18,7 @@ namespace CraneClikcer
         public MainPage()
         {
             InitializeComponent();
+
             Random Rand = new Random();
             LuckyImage.TranslateTo(-1000, 1000, 1);
             LuckyImage.FadeTo(0.0, 1);
@@ -139,12 +140,6 @@ namespace CraneClikcer
             });
         }
 
-        //go to the store page when the store button is pressed
-        private void Store_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new StorePage());
-        }
-
         //Update the score when returning to the home page if there was a chaneg
         protected override void OnAppearing()
         {
@@ -152,9 +147,20 @@ namespace CraneClikcer
             ((MainPageViewModel)BindingContext).UpdateScore();
         }
 
+        //go to the store page when the store button is pressed
+        private void Store_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new StorePage());
+        }
+
         private void Instructions_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new InstructionPage());
+        }
+
+        private void AboutPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AboutPage());
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)

@@ -3,6 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CraneClikcer.App">
     <Application.Resources>
-
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#13206d" />
+            <Setter Property="BarTextColor" Value="#FCC200" />
+            <Setter Property="BackgroundColor" Value="#FCC200"/>
+        </Style>
+        <Style TargetType="Label" x:Key="ScoreAndRate">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="#13206d"/>
+        </Style>
+        <Style TargetType="Label" x:Key="StoreLabels" BasedOn="{StaticResource ScoreAndRate}">
+            <Setter Property="Margin" Value="13, 0, 13 , 0"/>
+        </Style>
+        <Style TargetType="Label" x:Key="AboutHeaderLabels" BasedOn="{StaticResource ScoreAndRate}">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="Margin" Value="0, 30, 0, 15"/>
+        </Style>
+        <Style TargetType="Label" x:Key="AboutLabels" BasedOn="{StaticResource ScoreAndRate}">
+            <Setter Property="FontSize" Value="Body"/>
+            <Setter Property="Margin" Value="13, 0, 13 , 0"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Paragraphs" BasedOn="{StaticResource StoreLabels}">
+            <Setter Property="FontSize" Value="13.5"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Buttons">
+            <Setter Property="BackgroundColor" Value="#13206d"/>
+            <Setter Property="TextColor" Value="#FCC200"/>
+        </Style>
+        <Style TargetType="Button" x:Key="StoreButtons" BasedOn="{StaticResource Buttons}">
+            <Setter Property="Margin" Value="13, 0, 13 , 0"/>
+        </Style>
+        <Style TargetType="Button" x:Key="BuySellButton" BasedOn="{StaticResource StoreButtons}">
+            <Setter Property="Margin" Value="0, 0, 0, 20"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -11,7 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="About.xaml.cs" />
     <Compile Remove="ViewModels\StoreItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="About.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="InstructionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

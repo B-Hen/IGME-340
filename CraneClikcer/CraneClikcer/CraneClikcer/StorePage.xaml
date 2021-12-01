@@ -11,30 +11,30 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Label x:Name="Score" Text="{Binding Score, StringFormat='Cranes: {0:F0}'}"/>
+        <Label x:Name="Score" Text="{Binding Score, StringFormat='Cranes: {0:F0}'}" Style="{StaticResource ScoreAndRate}"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="Buy" Command="{Binding Buy}"/>
-            <Button Text="Sell" Command="{Binding Sell}"/>
+            <Button Text="Buy" Command="{Binding Buy}" Style="{StaticResource Buttons}"/>
+            <Button Text="Sell" Command="{Binding Sell}" Style="{StaticResource Buttons}"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="{Binding BuySellx1}" Command="{Binding X1}" />
-            <Button Text="{Binding BuySellx10}" Command="{Binding X10}"/>
-            <Button Text="{Binding BuySellx100}" Command="{Binding X100}"/>
+            <Button Text="{Binding BuySellx1}" Command="{Binding X1}" Style="{StaticResource BuySellButton}"/>
+            <Button Text="{Binding BuySellx10}" Command="{Binding X10}" Style="{StaticResource BuySellButton}"/>
+            <Button Text="{Binding BuySellx100}" Command="{Binding X100}" Style="{StaticResource BuySellButton}"/>
         </StackLayout>
         <CollectionView ItemsSource="{Binding items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:StoreItems">
                     <StackLayout>
-                        <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}"/>
-                        <Button x:Name="scissorsButton" Text="{Binding ScissorsText}" Command="{Binding AddSubScissors}" />
-                        <Label Text="{Binding Paper, StringFormat='Paper: {0:F0}'}"/>
-                        <Button Text="{Binding PaperText}" Command="{Binding AddSubPaper}"/>
-                        <Label Text="{Binding Siblings, StringFormat='Siblings: {0:F0}'}"/>
-                        <Button Text="{Binding SiblingText}" Command="{Binding AddSubSibling}"/>
-                        <Label Text="{Binding Friends, StringFormat='Friends: {0:F0}'}"/>
-                        <Button Text="{Binding FriendsText}" Command="{Binding AddSubFriends}"/>
-                        <Label Text="{Binding CoWorkers, StringFormat='Co-Workers: {0:F0}'}"/>
-                        <Button Text="{Binding CoWorkersText}" Command="{Binding AddSubCoWorkers}"/>
+                        <Label  Text="{Binding numScissors, StringFormat='Scissors: {0:F0}'}" Style="{StaticResource StoreLabels}"/>
+                        <Button x:Name="scissorsButton" Text="{Binding ScissorsText}" Command="{Binding AddSubScissors}" Style="{StaticResource StoreButtons}" />
+                        <Label Text="{Binding Paper, StringFormat='Paper: {0:F0}'}" Style="{StaticResource StoreLabels}"/>
+                        <Button Text="{Binding PaperText}" Command="{Binding AddSubPaper}" Style="{StaticResource  StoreButtons}"/>
+                        <Label Text="{Binding Siblings, StringFormat='Siblings: {0:F0}'}" Style="{StaticResource StoreLabels}"/>
+                        <Button Text="{Binding SiblingText}" Command="{Binding AddSubSibling}" Style="{StaticResource  StoreButtons}"/>
+                        <Label Text="{Binding Friends, StringFormat='Friends: {0:F0}'}" Style="{StaticResource StoreLabels}"/>
+                        <Button Text="{Binding FriendsText}" Command="{Binding AddSubFriends}" Style="{StaticResource  StoreButtons}"/>
+                        <Label Text="{Binding CoWorkers, StringFormat='Co-Workers: {0:F0}'}" Style="{StaticResource StoreLabels}"/>
+                        <Button Text="{Binding CoWorkersText}" Command="{Binding AddSubCoWorkers}" Style="{StaticResource  StoreButtons}"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
