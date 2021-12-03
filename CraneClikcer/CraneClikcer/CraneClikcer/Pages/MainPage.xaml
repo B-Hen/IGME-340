@@ -38,6 +38,6 @@
                 <TapGestureRecognizer Tapped="LuckyImage_Tappped"/>
             </Image.GestureRecognizers>
         </Image>
-        <Label x:Name="LuckyText" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+        <Label x:Name="LuckyText" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Style="{StaticResource ScoreAndRate}"/>
     </Grid>
 </ContentPage>

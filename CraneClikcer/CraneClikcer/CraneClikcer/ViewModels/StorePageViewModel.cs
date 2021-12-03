@@ -17,11 +17,14 @@ namespace CraneClikcer.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region Score
         public int Score
         {
             get { return App.Score; }
         }
+        #endregion
 
+        #region Buy and Sell Properties
         public bool BuySell
         {
             get { return App.BuySell; }
@@ -34,6 +37,7 @@ namespace CraneClikcer.ViewModels
         public string  BuySellx1 { get { return App.BuySellx1; } }
         public string  BuySellx10 { get { return App.BuySellx10; } }
         public string  BuySellx100 { get { return App.BuySellx100; } }
+        #endregion
 
         public StorePageViewModel()
         {
@@ -44,13 +48,16 @@ namespace CraneClikcer.ViewModels
             };
         }
 
+        #region Update
         //update the score whenever there is a change
         internal void UpdateScore()
         {
             //also check to see if the add scissor button can be enabled/disabled
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Score"));
         }
+        #endregion
 
+        #region Buy and Sell Commands
         private Command buy;
 
         public ICommand Buy
@@ -205,5 +212,6 @@ namespace CraneClikcer.ViewModels
             items[0].addSubFriends.ChangeCanExecute();
             items[0].addSubCoWorkers.ChangeCanExecute();
         }
+        #endregion
     }
 }

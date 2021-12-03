@@ -25,13 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AboutPage.xaml">
+    <EmbeddedResource Update="Pages\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="InstructionPage.xaml">
+    <EmbeddedResource Update="Pages\InstructionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StorePage.xaml">
+    <EmbeddedResource Update="Pages\StorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

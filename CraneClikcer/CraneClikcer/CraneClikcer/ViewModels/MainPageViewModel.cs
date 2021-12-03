@@ -12,6 +12,7 @@ namespace CraneClikcer.ViewModels
     public class MainPageViewModel : INotifyPropertyChanged
     {
         //Properties
+        #region Score and Rate Properties and Commands
         public int Score
         {
             get { return App.Score; }
@@ -47,9 +48,11 @@ namespace CraneClikcer.ViewModels
             App.Rate++;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Score"));
         }
+        #endregion
 
         public MainPageViewModel() { }
 
+        #region Update Methods
         //method to update the score whenever it changes
         internal void UpdateScore()
         {
@@ -61,9 +64,13 @@ namespace CraneClikcer.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Rate"));
         }
+        #endregion
 
+        #region Share Progress
+        //command to share stats
         private Command shareProgress;
 
+        //assign the command
         public ICommand ShareProgressCommand
         {
             get
@@ -77,6 +84,7 @@ namespace CraneClikcer.ViewModels
             }
         }
 
+        //method to share all the states
         public async void ShareProgress()
         {
             await Share.RequestAsync(new ShareTextRequest
@@ -86,5 +94,6 @@ namespace CraneClikcer.ViewModels
                 "\nCo-Workers: " + App.CoWorkers
             });
         }
+        #endregion
     }
 }

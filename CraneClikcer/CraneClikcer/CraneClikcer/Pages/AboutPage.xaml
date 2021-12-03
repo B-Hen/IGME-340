@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Developer: Breanna Henriquez" HorizontalOptions="CenterAndExpand" Style="{StaticResource AboutHeaderLabels}"/>
-            <Label Text="I am a 4th Game Design and Development major at RIT interested in Moblie Game Development, Web Development, Game Graphics Programming, and Software Development" HorizontalTextAlignment="Center"  Style="{StaticResource AboutLabels}"/>
+            <Label Text="I am a 4th year Game Design and Development major at RIT interested in Moblie Game Development, Web Development, Game Graphics Programming, and Software Development" HorizontalTextAlignment="Center"  Style="{StaticResource AboutLabels}"/>
             <Label Text="What is Crane Clicker?" HorizontalOptions="CenterAndExpand" Style="{StaticResource AboutHeaderLabels}"/>
             <Label Text="Crane Clicker is a clone of Cookie Clicker created using Xamarin and C#. The goal of this project was to learn more about Xamarin and moblie apps in general and create something from scratch, which I feel was very much hit in this project" HorizontalTextAlignment="Center"  Style="{StaticResource AboutLabels}"/>
             <Label Text="Socials" HorizontalOptions="CenterAndExpand" Style="{StaticResource AboutHeaderLabels}"/>
